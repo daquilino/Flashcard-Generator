@@ -1,4 +1,6 @@
 # Flashcard-Generator
+	
+	Paragraph or two about Flashcard-Generator
 
 	
 ## Getting Started
@@ -13,7 +15,7 @@
 1. Download and install Node.js (if not installed already). 
 [Node.js Download Page](https://nodejs.org/en/download/)
 
-2. Clone FlashCard-Generator repository. 
+2. Clone Flashcard-Generator repository. 
 
 ```
 $ git clone https://github.com/daquilino/Flashcard-Generator
@@ -27,7 +29,7 @@ $ npm install
 
 
 ## Usage
-#### Liri takes the following four commands as arguments.
+#### Flashcard-Generator takes the following commands ....
 
 1. `one`
  
