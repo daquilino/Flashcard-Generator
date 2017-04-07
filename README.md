@@ -44,7 +44,7 @@ $ npm install
 	
 	~~~
 	
-	let card1 = new BASIC.BasicCard(Who was the first president of the United States?", "George Washington");
+	let card1 = new BASIC.BasicCard("Who was the first president of the United States?", "George Washington");
 
 ```
 
