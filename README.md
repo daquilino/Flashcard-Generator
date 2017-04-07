@@ -6,13 +6,12 @@ Flashcard-Generator contains two modules, basicCard.js and clozeCard.js, that al
 
 	
 - Cloze-Deleted flashcards have full text (answer), and partial text (question), which is created from the full text with the 'cloze-deletion' term(s) removed. 
-<center>
-   "George Washington was the first president of the United States."
+<center>"George Washington was the first president of the United States."</center>
 
    We can create a "cloze deletion" by removing the words "George Washington":
 
    "... was the first president of the United States."
-</center>
+
 	
 ## Getting Started
 
