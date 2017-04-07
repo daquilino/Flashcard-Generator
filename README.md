@@ -58,6 +58,7 @@ $ node command
 ###### NPM Packages
 
 * [file-system](https://www.npmjs.com/package/file-system)	- Library to read/write data in a file.
+* [inquirer](https://www.npmjs.com/package/inquirer) - Library of common interactive command line user interfaces.
 
 
 

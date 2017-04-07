@@ -3,13 +3,13 @@ const CLOZE  = require('./cloze-deleted-flashcard.js');
 const INQUIRER = require('inquirer');
 
 
+
+//for quick test - REDO WITH FS
 let clozeCards = [];
 
 function askQuestion()
 {
 	let card = clozeCards[Math.floor(Math.random()*clozeCards.length)];
-
-
 }
 
 
@@ -26,7 +26,6 @@ function makeBasicCard()
 
 		}
 
-
 		]).then(function(user){
 
 			console.log(user.confirm);
@@ -36,5 +35,9 @@ function makeBasicCard()
 		});
 }//END makeBasicCard()
 
-makeBasicCard();
 
+let x = new CLOZE.ClozeCard("test card", "card");
+console.log(x.makePartialText());
+
+let z = new CLOZE.ClozeCard("this should be false", "this, card");
+console.log(z.makePartialText());
