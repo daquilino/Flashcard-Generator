@@ -40,11 +40,11 @@ $ npm install
 *  The 'BasicCard' constructor simply has two parameters, 'front' and 'back', which each get assigned respectivly to its two properties 'front' and 'back'.
  
 ```javascript
-	const BASIC = require('./basic-flashcard.js')
+const BASIC = require('./basic-flashcard.js')
 	
-	...
+***
 	
-	let card1 = new BASIC.BasicCard("Who was the first president of the United States?", "George Washington");
+let card1 = new BASIC.BasicCard("Who was the first president of the United States?", "George Washington");
 
 ```
 
