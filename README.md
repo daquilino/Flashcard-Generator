@@ -2,7 +2,7 @@
 	
 Flashcard-Generator essentially constitute an API that allows users to create two types of flashcards, Basic and Cloze-Deleted, whick is simply a sentence that has had some of its text removed. 
 
-Basic flashcards have a 'front' (queston), and a 'back' (answer).
+- Basic flashcards have a 'front' (queston), and a 'back' (answer).
 	
 Cloze-Deleted flashcards have full text (answer), and partial text (question), which is created from the full text with the 'cloze-deletion' term(s) removed. 
 
@@ -35,9 +35,9 @@ $ npm install
 ## Usage
 #### basic-flashcard.js
 
-1. `Creating a BasicCard object (flashcard)`
+`Creating a BasicCard object (flashcard)`
 
-*  The 'BasicCard' constructor simply has two parameters, 'front' and 'back', which each get assigned respectivly to its two properties 'front' and 'back'.
+*  The 'BasicCard' constructor simply has two parameters, 'front' and 'back', which each get assigned to respective properties 'front' and 'back'.
  
 ```javascript
 const BASIC = require('./basic-flashcard.js')
@@ -54,7 +54,7 @@ console.log(card1);
 
 ```
 
-   * description
+ 
 
 2. `two` 
 

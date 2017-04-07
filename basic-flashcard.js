@@ -6,7 +6,7 @@
 // and an answer on the otherside.
 //
 // The 'BasicCard' constructor simply has two parameters, 'front' and 'back', which each 
-//get assigned respectivly to its two properties 'front' and 'back'.   
+//get assigned to respective properties 'front' and 'back'.   
 
 
 let BasicCard = function (front, back)
