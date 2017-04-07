@@ -3,8 +3,15 @@
 Flashcard-Generator contains two modules, basicCard.js and clozeCard.js, that allows users to create two types of flashcards, Basic and Cloze-Deleted.  
 
 - Basic flashcards have a 'front' (queston), and a 'back' (answer).
+
 	
 - Cloze-Deleted flashcards have full text (answer), and partial text (question), which is created from the full text with the 'cloze-deletion' term(s) removed. 
+
+... "George Washington was the first president of the United States."
+
+... ...We can create a "cloze deletion" by removing the words "George Washington":
+
+... "... was the first president of the United States."
 
 	
 ## Getting Started
