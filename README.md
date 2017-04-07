@@ -1,10 +1,10 @@
 # Flashcard-Generator
 	
-	Flashcard-Generator essentially constitute an API that allows users to create two types of flashcards, Basic and Cloze-Deleted, whick is simply a sentence that has had some of its text removed. 
+Flashcard-Generator essentially constitute an API that allows users to create two types of flashcards, Basic and Cloze-Deleted, whick is simply a sentence that has had some of its text removed. 
 
-	Basic flashcards have a 'front' (queston), and a 'back' (answer).
+Basic flashcards have a 'front' (queston), and a 'back' (answer).
 	
-	Cloze-Deleted flashcards have full text (answer), and partial text (question), which is created from the full text with the 'cloze-deletion' term(s) removed. 
+Cloze-Deleted flashcards have full text (answer), and partial text (question), which is created from the full text with the 'cloze-deletion' term(s) removed. 
 
 	
 ## Getting Started
