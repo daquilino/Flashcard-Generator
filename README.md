@@ -1,6 +1,6 @@
 # Flashcard-Generator
 	
-Flashcard-Generator essentially constitute an API that allows users to create two types of flashcards, Basic and Cloze-Deleted.
+Flashcard-Generator contains two modules, basicCard.js and clozeCard.js, that allows users to create two types of flashcards, Basic and Cloze-Deleted.  
 
 - Basic flashcards have a 'front' (queston), and a 'back' (answer).
 	
@@ -33,7 +33,7 @@ $ npm install
 
 
 ## Usage
-#### basic-flashcard.js
+#### basicCard.js
 
 `Creating a BasicCard object (flashcard)`
 
@@ -50,19 +50,32 @@ console.log(card1);
 
 // BasicCard {
 //	front: 'Who was the first president of the United States?',
-//	back: 'George Washington'}
+//	back: 'George Washington' }
 
 ```
 
+ #### clozeCard.js
+
+`Creating a ClozeCard object (flashcard)`
+
+*  The 'ClozeCard' constructor simply has two parameters, 'front' and 'back', which each get assigned to respective properties 'front' and 'back'.
  
+```javascript
+const CLOZE  = require('./clozeCard.js');
+	
+***
+	
+let card1 = new CLOZE.ClozeCard("The colors red and blue make purple.", "red, blue");
+console.log(card1.makePartialText); //true
 
-2. `two` 
+console.log(card1);
+
+// ClozeCard {
+//	fulltext: 'The colors red and blue make purple.',
+//	clozeDeletion: 'red, blue'
+//  partialText: 'THE COLORS ... AND ... MAKE PURPLE.' }
 
 ```
-$ node command
-```
-
-   * descrition
      
 	 
 

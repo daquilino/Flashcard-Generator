@@ -13,8 +13,8 @@
 */
 
 
-const BASIC  = require('./basic-flashcard.js');
-const CLOZE  = require('./cloze-deleted-flashcard.js');
+const BASIC  = require('./basicCard.js');
+const CLOZE  = require('./clozeCard.js');
 const INQUIRER = require('inquirer');
 
 
@@ -110,19 +110,19 @@ function playBasicCard()
 // else
 // 	console.log("Try Again!");
 
-// let b = new CLOZE.ClozeCard("Red and blue make purple?", "red, blue");
-// if(b.makePartialText())
-// 	console.log(b.partialText);
-// else
-// 	console.log("Try Again!");
+let b = new CLOZE.ClozeCard("The colors red and blue make purple.", "red, blue");
+if(b.makePartialText())
+	console.log(b.partialText);
+else
+	console.log("Try Again!");
 
-
+console.log(b);
 
 
 
 //makeBasicCard();
 //playBasicCard();
 
-let card1 = new BASIC.BasicCard("Who was the first president of the United States?", "George Washington");
+// let card1 = new BASIC.BasicCard("Who was the first president of the United States?", "George Washington");
 
-console.log(card1);
+// console.log(card1);

@@ -1,4 +1,4 @@
-//Douglas Aquilino   April 4, 2017	'basic-flashcard.js' module
+//Douglas Aquilino   April 4, 2017	'basicCard.js' module
 //
 // This module contains a constructor function used to create a 'Basic Flashcard' object.
 //

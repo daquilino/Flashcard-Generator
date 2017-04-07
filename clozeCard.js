@@ -1,4 +1,4 @@
-// Douglas Aquilino   April 4, 2017      'cloze-deleted-flashcard.js' module
+// Douglas Aquilino   April 4, 2017      'clozeCard.js' module
 //
 // This module contains a constructor function and protorype method used to create
 // and store (in a text file) a 'Cloze Deleted Flashcard' object.
@@ -29,7 +29,7 @@ function ClozeCard(fullText, clozeDeletion)
 
 
 // ClozeCard prototype method for creating 'partialText' property of object and
-// storing JSON.stringify(ed) object to 'clozeCards.txt' file.
+// storing JSON.stringify(ed) object to 'Cloze-Flashcards.txt' file.
 // If the 'clozeDeleteion' term(s) are not conatined in the 'fullText', an error
 // message is logged to the user,the method returns 'false', the object is not appended.
 // Otherwise a 'partialText' property of the object is created and the object
@@ -59,7 +59,7 @@ ClozeCard.prototype.makePartialText = function()
 	}
 
 	// Appends ClozeCard object as string to 'clozeCard.txt'
-	FS.appendFile('clozeCards.txt', JSON.stringify({
+	FS.appendFile('Cloze-Flashcards.txt', JSON.stringify({
 		fullText: this.fullText,
 		clozeDeletion: this.clozeDeletion,
 		partialText: this.partialText
