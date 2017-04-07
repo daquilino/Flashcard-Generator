@@ -1,7 +1,21 @@
+/*  NOTES 
+
+	1. basic or cloze
+	2. use or create 
+
+	3. basic
+			create - create
+			use - display/answer
+
+	4. cloze
+		create - create
+		use - display/answer				
+*/
+
+
 const BASIC  = require('./basic-flashcard.js');
 const CLOZE  = require('./cloze-deleted-flashcard.js');
 const INQUIRER = require('inquirer');
-
 
 
 //for quick test - REDO WITH FS
@@ -84,13 +98,29 @@ function playBasicCard()
 }//END playBasic()
 
 
-// let x = new CLOZE.ClozeCard("test card", "card");
-// console.log(x.makePartialText());
+let x = new CLOZE.ClozeCard("test card", "card");
+console.log(x.makePartialText());
 
-// let z = new CLOZE.ClozeCard("this should be false", "this, card");
-// console.log(z.makePartialText());
+let z = new CLOZE.ClozeCard("this should be false", "this, card");
+console.log(z.makePartialText());
+
+let y = new CLOZE.ClozeCard("Red and blue make purple?", "red, bluex");
+if(y.makePartialText())
+	console.log(y.partialText);
+else
+	console.log("Try Again!");
+
+let b = new CLOZE.ClozeCard("Red and blue make purple?", "red, blue");
+if(b.makePartialText())
+	console.log(b.partialText);
+else
+	console.log("Try Again!");
+
+
+
+
 
 //makeBasicCard();
-playBasicCard();
+//playBasicCard();
 
 

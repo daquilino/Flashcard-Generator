@@ -5,8 +5,8 @@
 // A 'Basic Flashcard' is simple a flashcard that has a question on one side,
 // and an answer on the otherside.
 //
-// The 'BasicCard' simply has two parameters, 'front' and 'back', which each get assigned respectivly to
-// properties 'front' and 'back'.   
+// The 'BasicCard' constructor simply has two parameters, 'front' and 'back', which each 
+//get assigned respectivly to its two properties 'front' and 'back'.   
 
 
 let BasicCard = function (front, back)

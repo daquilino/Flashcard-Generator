@@ -1,15 +1,17 @@
-//Douglas Aquilino   April 4, 2017      'cloze-deleted-flashcard.js' module
+// Douglas Aquilino   April 4, 2017      'cloze-deleted-flashcard.js' module
 //
-// This module contains a constructor function used to create a 'Cloze Deleted Flashcard' object.
-// A 'Cloze Deletion' is...
-// .makePartialText returns true if full text contains cloze deletion
-// .makePartialText returns false if full text does not contain cloze deletion
+// This module contains a constructor function and protorype method used to create
+// and store (in a text file) a 'Cloze Deleted Flashcard' object.
+// 
+// A 'Cloze Deletion' is simply a sentence that has had some of its text removed.
+//
+// 'makePartialText' method returns true if full text contains cloze deletion
+// otherwise, returns false.
 
-//file-system npm package
+// file-system npm package
 const FS = require('fs');
 
-
-//'ClozeCard' object constructor.  This constructor is 'scope-safe'.
+// 'ClozeCard' object constructor.  This constructor is 'scope-safe'.
 function ClozeCard(fullText, clozeDeletion)
 {
 	//Checks if 'this' is bound to ClozeCard object (i.e. 'new' was used.) 
@@ -23,22 +25,31 @@ function ClozeCard(fullText, clozeDeletion)
 	{
 		return new ClozeCard(fullText, clozeDeletion)
 	}	 
-}//END ClozeCard constructor	
+}// END ClozeCard constructor	
 
 
-// Method 
+// ClozeCard prototype method for creating 'partialText' property of object and
+// storing JSON.stringify(ed) object to 'clozeCards.txt' file.
+// If the 'clozeDeleteion' term(s) are not conatined in the 'fullText', an error
+// message is logged to the user,the method returns 'false', the object is not appended.
+// Otherwise a 'partialText' property of the object is created and the object
+// is appended as a string to the 'clozeCards.txt' and the method returns 'true';  
 ClozeCard.prototype.makePartialText = function()
 {
+	//array containing each 'clozeDeletion' word.
 	let clozeWords = this.clozeDeletion.toUpperCase().split(",");
 	
-	this.partialText = this.fullText.toUpperCase();
+	let fullTextUpper = this.fullText.toUpperCase();
 	
+	this.partialText = fullTextUpper;
+	
+	// check if word in each cloze words are in full text.
 	for(let key in clozeWords)	
 	{
-		//check if word in each cloze words are in full text.
+		// check if each word in 'clozeWords' are in full text.
 		if(this.partialText.indexOf(clozeWords[key].trim()) < 0)
 		{
-			console.log("Error!" ,"'"+ this.fullText.toUpperCase() + "'" ,"does not contain","'" +  clozeWords[key] + "'." );
+			console.log("Error!" ,"'"+ fullTextUpper + "'" ,"does not contain","'" +  clozeWords[key] + "'." );
 			return false;
 		}
 		else
@@ -47,7 +58,7 @@ ClozeCard.prototype.makePartialText = function()
 		}		
 	}
 
-	//Appends ClozeCard object as string in 'clozeCard.txt'
+	// Appends ClozeCard object as string to 'clozeCard.txt'
 	FS.appendFile('clozeCards.txt', JSON.stringify({
 		fullText: this.fullText,
 		clozeDeletion: this.clozeDeletion,
