@@ -7,11 +7,11 @@ Flashcard-Generator contains two modules, basicCard.js and clozeCard.js, that al
 	
 - Cloze-Deleted flashcards have full text (answer), and partial text (question), which is created from the full text with the 'cloze-deletion' term(s) removed. 
 
-		"George Washington was the first president of the United States."
+   "George Washington was the first president of the United States."
 
-		We can create a "cloze deletion" by removing the words "George Washington":
+   We can create a "cloze deletion" by removing the words "George Washington":
 
-		"... was the first president of the United States."
+   "... was the first president of the United States."
 
 	
 ## Getting Started
@@ -102,12 +102,3 @@ console.log(card1);
 ## Author
 
 * **Douglas Aquilino** - [https://github.com/daquilino](https://github.com/daquilino)
-
-
-1. And another item.
-
-...You can have properly indented paragraphs within list items. Notice the blank line above, and the leading spaces (at least one, but we'll use three here to also align the raw Markdown).
-
-...To have a line break without a paragraph, you will need to use two trailing spaces.⋅⋅
-...Note that this line is separate, but within the same paragraph.⋅⋅
-...(This is contrary to the typical GFM line break behaviour, where trailing spaces are not required.)
