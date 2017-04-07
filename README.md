@@ -4,14 +4,18 @@ Flashcard-Generator contains two modules, basicCard.js and clozeCard.js, that al
 
 - Basic flashcards have a 'front' (queston), and a 'back' (answer).
 
+   **Front** - "Who was the first president of the United States?"
+
+   **Back** - "George Washington"
+
 	
-- Cloze-Deleted flashcards have full text (answer), and partial text (question), which is created from the full text with the 'cloze-deletion' term(s) removed. 
+- Cloze-Deleted flashcards have three properties, full text (answer), and partial text (question), which is created from the full text with the 'cloze-deletion' term(s) removed. 
       
-      "George Washington was the first president of the United States."
+   **Full Text** - "George Washington was the first president of the United States."
 
-   We can create a "cloze deletion" by removing the words "George Washington":
+   **Cloze Deletion** - Words to remove "George Washington":
 
-   "... was the first president of the United States."
+   **Partial Text** - "... was the first president of the United States."
 
 	
 ## Getting Started
@@ -71,6 +75,8 @@ console.log(card1);
 const CLOZE  = require('./clozeCard.js');
 	
 ***
+
+//general synatax new CLOZE.ClozeCard('full text', 'cloze deletion 1, cloze deletion 2, ...');
 	
 let card1 = new CLOZE.ClozeCard("The colors red and blue make purple.", "red, blue");
 console.log(card1.makePartialText); //true
