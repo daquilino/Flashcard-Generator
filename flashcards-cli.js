@@ -98,23 +98,23 @@ function playBasicCard()
 }//END playBasic()
 
 
-let x = new CLOZE.ClozeCard("test card", "card");
-console.log(x.makePartialText());
+// let x = new CLOZE.ClozeCard("test card", "card");
+// console.log(x.makePartialText());
 
-let z = new CLOZE.ClozeCard("this should be false", "this, card");
-console.log(z.makePartialText());
+// let z = new CLOZE.ClozeCard("this should be false", "this, card");
+// console.log(z.makePartialText());
 
-let y = new CLOZE.ClozeCard("Red and blue make purple?", "red, bluex");
-if(y.makePartialText())
-	console.log(y.partialText);
-else
-	console.log("Try Again!");
+// let y = new CLOZE.ClozeCard("Red and blue make purple?", "red, bluex");
+// if(y.makePartialText())
+// 	console.log(y.partialText);
+// else
+// 	console.log("Try Again!");
 
-let b = new CLOZE.ClozeCard("Red and blue make purple?", "red, blue");
-if(b.makePartialText())
-	console.log(b.partialText);
-else
-	console.log("Try Again!");
+// let b = new CLOZE.ClozeCard("Red and blue make purple?", "red, blue");
+// if(b.makePartialText())
+// 	console.log(b.partialText);
+// else
+// 	console.log("Try Again!");
 
 
 
@@ -123,4 +123,6 @@ else
 //makeBasicCard();
 //playBasicCard();
 
+let card1 = new BASIC.BasicCard("Who was the first president of the United States?", "George Washington");
 
+console.log(card1);

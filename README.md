@@ -46,6 +46,12 @@ const BASIC = require('./basic-flashcard.js')
 	
 let card1 = new BASIC.BasicCard("Who was the first president of the United States?", "George Washington");
 
+console.log(card1);
+
+// BasicCard {
+//	front: 'Who was the first president of the United States?',
+//	back: 'George Washington'}
+
 ```
 
    * description
