@@ -1,6 +1,6 @@
 //Douglas Aquilino 		April 8,2017		flashcards-cli.js
 //
-//	
+//	Node.js Test Program For basicCard.js and clozeCard.js.	
 
 const BASIC  = require('./basicCard.js');
 const CLOZE  = require('./clozeCard.js');
@@ -40,19 +40,20 @@ function start()
 						break;
 					case "Play Flashcards":
 						if(prompt2.choice === "Basic")
-							playBasicCards();
+							playBasicCards(0);
 						else
-							playClozeCards();
+							playClozeCards(0);
 						break;
-
 				}
 				
 			});
 
 	});
-}
+}//END start()
 
 
+
+//======================================================
 function makeBasicCards()
 {
 	INQUIRER.prompt([
@@ -73,7 +74,7 @@ function makeBasicCards()
 
 			
 			let card = new BASIC.BasicCard(user.question, user.answer);
-			FS.appendFile("basic-cards.txt", JSON.stringify(card));
+			FS.appendFile("basic-cards.txt", JSON.stringify(card) + '\n');
 
 			INQUIRER.prompt([
 
@@ -87,58 +88,142 @@ function makeBasicCards()
 			]).then(function(user)
 			{
 				if(user.confirm)
-					makeBasicCard();
-				else
-					playBasicCard();
+					makeBasicCards();
+				
 			});
 				
 	});
 }//END makeBasicCard()
 
 
-function playBasicCards()
+function playBasicCards(i)
 {
-	let cards = [];
-	FS.readFile("basic-cards", "utf8", function(err, data){
-
-		cards = data.split("\n")
-
-});
 	
-console.log(cards);
-	// console.log(card.question);
-	// INQUIRER.prompt([
-	// {
-	// 	message: "Answer:",
-	// 	name: "answer"
-	// }
+	FS.readFile("basic-cards.txt", "utf8", function(err, data){
 
-	// ]).then(function(user){
+		if(err)
+		{
+			console.log("Error loading basic-cards.txt");
+			return;
+		}
+		
+		let cards = data.split("\n");
+		
+		if(cards[i].length > 0 && i < cards.length)
+		{
 
-	// 	if(user.answer === card.answer)
-	// 		console.log("Correct");
-	// 	else if(user.answer === "quit")
-	// 	{	
-	// 		console.log("GOODBYE");
-	// 		return;
-	// 	}	
-	// 	else
-	// 		console.log("Incorrect");
+			let cardobj = JSON.parse(cards[i]);
+			console.log("\nQuestion:", cardobj.front);
 
-	// 	playBasicCard();
-	// });
+			INQUIRER.prompt([
+			{
+				message: "Answer:",
+				name: "answer"
+			}
 
+			]).then(function(user){
+
+				if(user.answer === cardobj.back)
+					console.log("Correct");
+				else
+					console.log("Incorrect. The correct answer is '" + cardobj.back +"'.");
+				
+				i++;
+				playBasicCards(i);
+			});	
+		}	
+	});
+	
 }//END playBasic()
 
+
+//=========================================================
 function makeClozeCards()
 {
-	console.log("make cloze");
+	INQUIRER.prompt([
 
-}
+		{
+			type:"input",
+			message: "Full Text:",
+			name: "fulltext"
+			
+		},
+		{
+			type:"input",
+			message: "Cloze Deletion(s) (seperated terms commas):",
+			name: "cloze"
+		}
 
-function playClozeCards()
+		]).then(function(user){
+
+			let card = new CLOZE.ClozeCard(user.fulltext, user.cloze);
+
+			card.makePartialText();
+			
+			INQUIRER.prompt([
+
+			{
+				type:"confirm",
+				message: "Do You Want Make Another FlashCard?",
+				name: "confirm",
+				default: false
+			
+			}
+			]).then(function(user)
+			{
+				if(user.confirm)
+					makeClozeCards();
+				else
+					return;
+			});				
+	});
+
+}//END makeClozeCards()
+
+//========================================
+
+
+function playClozeCards(i)
 {
-	console.log("play cloze");
+	FS.readFile("Cloze-Flashcards.txt", "utf8", function(err, data){
+
+		if(err)
+		{
+			console.log("Error loading Cloze-Flashcards.txt");
+			return;
+		}
+		
+		let cards = data.split("\n");
+		
+		if(cards[i].length > 0 && i < cards.length)
+		{
+
+			let cardobj = JSON.parse(cards[i]);
+			console.log("\nQuestion:", cardobj.partialText);
+
+			INQUIRER.prompt([
+			{
+				message: "Answer (seperate terms with commas):",
+				name: "answer"
+			}
+
+			]).then(function(user){
+
+				
+
+				if(user.answer.replace(/\s/g, "").toUpperCase() === cardobj.clozeDeletion.replace(/\s/g, "").toUpperCase())
+					console.log("Correct");
+		
+				else
+				{	
+					console.log("Incorrect!");
+					console.log("Correct Answer:", cardobj.fullText);
+				}	
+				i++;
+				playClozeCards(i);
+			});	
+		}	
+	});
 
 }
 

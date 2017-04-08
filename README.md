@@ -2,7 +2,7 @@
 	
 Flashcard-Generator contains two modules, basicCard.js and clozeCard.js, that allows users to create two types of flashcards, Basic and Cloze-Deleted.  
 
-- Basic flashcards have a 'front' (queston), and a 'back' (answer).
+- Basic flashcards have a 'front' (question), and a 'back' (answer).
 
    **Front** - "Who was the first president of the United States?"
 
@@ -67,9 +67,9 @@ console.log(card1);
  #### clozeCard.js
 
 
-*  The 'ClozeCard' constructor has three parameters, 'fullText', 'clozeDeletion', and 'partialText'. The two former each get assigned from their respective parameters 'fullText' and 'clozeDeletion'. Both parameters are strings with 'clozeDeletion' accepting multiple terms in ONE string seperated by commas (example "red, blue").  The 'partialText' property get created in the 'ClozeCard' method 'makePartialText'.   
+*  The 'ClozeCard' constructor has two properties, 'fullText' and 'clozeDeletion'. The two get assigned from their respective parameters 'fullText' and 'clozeDeletion'. Both parameters are strings with 'clozeDeletion' accepting multiple terms in ONE string seperated by commas (example "red, blue").    
 
-* 'ClozeCard' also has one method 'makePartialText' which checks if the full text contains the cloze deletion term(s).  If it does the method creates the objecs 'partialText' property, appends the object to 'Cloze-Flashcards.txt' file and returns 'true'. If the full text does not contain the cloze deletion term(s), an error messege is logged to the user, the method returns 'false', and the object is NOT appended to the file.
+* 'ClozeCard' also has a prototype method 'makePartialText' which checks if the full text contains the cloze deletion term(s).  If it does the method creates the objects 'partialText' property, appends the object to 'Cloze-Flashcards.txt' file and returns 'true'. If the full text does not contain the cloze deletion term(s), an error messege is logged to the user, the method returns 'false', and the object is NOT appended to the file.
 
 `Creating a ClozeCard object (flashcard)`
  
@@ -92,10 +92,6 @@ console.log(card1);
 
 ```
      
-	 
-
-
-
 ## Built With
 
 * [Sublime Text](https://www.sublimetext.com/) - Text Editor.
