@@ -1,21 +1,11 @@
-/*  NOTES 
-
-	1. basic or cloze
-	2. use or create 
-
-	3. basic
-			create - create
-			use - display/answer
-
-	4. cloze
-		create - create
-		use - display/answer				
-*/
-
+//Douglas Aquilino 		April 8,2017		flashcards-cli.js
+//
+//	
 
 const BASIC  = require('./basicCard.js');
 const CLOZE  = require('./clozeCard.js');
 const INQUIRER = require('inquirer');
+const FS = require('fs');
 
 function start()
 {
@@ -24,40 +14,46 @@ function start()
 		{
 			type:"list",
 			message: "What would you like to do?",
-			choices: ["Create Flachcards", "View Flashcards"],
+			choices: ["Create Flachcards", "Play Flashcards"],
 			name: "choice"		
 		}
 	
-	]).then(function(user){
+	]).then(function(prompt1){
 
 			INQUIRER.prompt([
 
 			{
 				type:"list",
-				message: "What would you like to do?",
-				choices: ["1", "2"],
+				message: "What type of flashcard?",
+				choices: ["Basic", "Cloze Deleted"],
 				name: "choice"		
 			}
 		
-			]).then(function(user2){
-				console.log(user.choice)
-				console.log(user2.choice)
-				
+			]).then(function(prompt2){
+				switch(prompt1.choice)
+				{
+					case "Create Flachcards":
+						if(prompt2.choice === "Basic")
+							makeBasicCards();
+						else
+							makeClozeCards();
+						break;
+					case "Play Flashcards":
+						if(prompt2.choice === "Basic")
+							playBasicCards();
+						else
+							playClozeCards();
+						break;
 
+				}
+				
 			});
 
 	});
 }
 
-//for quick test - REDO WITH FS
-let basicCards = [{question: "what color", answer: "blue"},{question: "what day", answer: "thursday"},{question: "what time", answer:"now"}];
 
-function askQuestion()
-{
-	return basicCards[Math.floor(Math.random()*basicCards.length)];
-}
-
-function makeBasicCard()
+function makeBasicCards()
 {
 	INQUIRER.prompt([
 
@@ -76,7 +72,8 @@ function makeBasicCard()
 		]).then(function(user){
 
 			
-			basicCards.push(new BASIC.BasicCard(user.question, user.answer));
+			let card = new BASIC.BasicCard(user.question, user.answer);
+			FS.appendFile("basic-cards.txt", JSON.stringify(card));
 
 			INQUIRER.prompt([
 
@@ -99,61 +96,52 @@ function makeBasicCard()
 }//END makeBasicCard()
 
 
-function playBasicCard()
+function playBasicCards()
 {
-	let card = askQuestion();
-	console.log(card.question);
-	INQUIRER.prompt([
-	{
-		message: "Answer:",
-		name: "answer"
-	}
+	let cards = [];
+	FS.readFile("basic-cards", "utf8", function(err, data){
 
-	]).then(function(user){
+		cards = data.split("\n")
 
-		if(user.answer === card.answer)
-			console.log("Correct");
-		else if(user.answer === "quit")
-		{	
-			console.log("GOODBYE");
-			return;
-		}	
-		else
-			console.log("Incorrect");
+});
+	
+console.log(cards);
+	// console.log(card.question);
+	// INQUIRER.prompt([
+	// {
+	// 	message: "Answer:",
+	// 	name: "answer"
+	// }
 
-		playBasicCard();
-	});
+	// ]).then(function(user){
+
+	// 	if(user.answer === card.answer)
+	// 		console.log("Correct");
+	// 	else if(user.answer === "quit")
+	// 	{	
+	// 		console.log("GOODBYE");
+	// 		return;
+	// 	}	
+	// 	else
+	// 		console.log("Incorrect");
+
+	// 	playBasicCard();
+	// });
 
 }//END playBasic()
 
+function makeClozeCards()
+{
+	console.log("make cloze");
 
-// let x = new CLOZE.ClozeCard("test card", "card");
-// console.log(x.makePartialText());
+}
 
-// let z = new CLOZE.ClozeCard("this should be false", "this, card");
-// console.log(z.makePartialText());
+function playClozeCards()
+{
+	console.log("play cloze");
 
-// let y = new CLOZE.ClozeCard("Red and blue make purple?", "red, bluex");
-// if(y.makePartialText())
-// 	console.log(y.partialText);
-// else
-// 	console.log("Try Again!");
-
-// let b = new CLOZE.ClozeCard("The colors red and blue make purple.", "red, blue");
-// if(b.makePartialText())
-// 	console.log(b.partialText);
-// else
-// 	console.log("Try Again!");
-
-// console.log(b);
+}
 
 
-
-//makeBasicCard();
-//playBasicCard();
-
-// let card1 = new BASIC.BasicCard("Who was the first president of the United States?", "George Washington");
-
-// console.log(card1);
 
 start();
