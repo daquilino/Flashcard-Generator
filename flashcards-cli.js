@@ -44,16 +44,13 @@ function start()
 						else
 							playClozeCards(0);
 						break;
-				}
-				
+				}				
 			});
-
 	});
 }//END start()
 
 
-
-//======================================================
+//=========================================================
 function makeBasicCards()
 {
 	INQUIRER.prompt([
@@ -180,9 +177,8 @@ function makeClozeCards()
 
 }//END makeClozeCards()
 
-//========================================
 
-
+//=========================================================
 function playClozeCards(i)
 {
 	FS.readFile("Cloze-Flashcards.txt", "utf8", function(err, data){
@@ -209,11 +205,8 @@ function playClozeCards(i)
 
 			]).then(function(user){
 
-				
-
 				if(user.answer.replace(/\s/g, "").toUpperCase() === cardobj.clozeDeletion.replace(/\s/g, "").toUpperCase())
-					console.log("Correct");
-		
+					console.log("Correct");		
 				else
 				{	
 					console.log("Incorrect!");
@@ -224,9 +217,7 @@ function playClozeCards(i)
 			});	
 		}	
 	});
-
 }
-
 
 
 start();
