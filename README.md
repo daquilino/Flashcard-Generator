@@ -64,7 +64,6 @@ console.log(card1);
 //	back: 'George Washington' }
 
 ```
-
  #### clozeCard.js
 
 `Creating a ClozeCard object (flashcard)`
