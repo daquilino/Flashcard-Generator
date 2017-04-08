@@ -46,9 +46,9 @@ $ npm install
 ## Usage
 #### basicCard.js
 
-`Creating a BasicCard object (flashcard)`
-
 *  The 'BasicCard' constructor simply has two parameters, 'front' and 'back', which each get assigned to respective properties 'front' and 'back'.
+
+`Creating a BasicCard object (flashcard)`
  
 ```javascript
 const BASIC = require('./basic-flashcard.js')
@@ -66,9 +66,12 @@ console.log(card1);
 ```
  #### clozeCard.js
 
-`Creating a ClozeCard object (flashcard)`
 
-*  The 'ClozeCard' constructor has two parameters, 'fullText' and 'clozeDeletion', which each get assigned to respective properties 'fullText' and 'clozeDeletion'. Both parameters are strings with 'clozeDeletion' accepting multiple terms in ONE string seperated by commas (example "red, blue").  'ClozeCard' also has one method 'makePartialText' which checks if the full text contains the cloze deletion term(s).  If it does the method creates the objecs 'partialText' property, appends the object to 'Cloze-Flashcards.txt' file and returns 'true'. If the full text does not contain the cloze deletion term(s), an error messege is logged to the user, the method returns 'false', and the object is NOT appended to the file.
+*  The 'ClozeCard' constructor has three parameters, 'fullText', 'clozeDeletion', and 'partialText'. The two former each get assigned from their respective parameters 'fullText' and 'clozeDeletion'. Both parameters are strings with 'clozeDeletion' accepting multiple terms in ONE string seperated by commas (example "red, blue").  The 'partialText' property get created in the 'ClozeCard' method 'makePartialText'.   
+
+* 'ClozeCard' also has one method 'makePartialText' which checks if the full text contains the cloze deletion term(s).  If it does the method creates the objecs 'partialText' property, appends the object to 'Cloze-Flashcards.txt' file and returns 'true'. If the full text does not contain the cloze deletion term(s), an error messege is logged to the user, the method returns 'false', and the object is NOT appended to the file.
+
+`Creating a ClozeCard object (flashcard)`
  
 ```javascript
 const CLOZE  = require('./clozeCard.js');
