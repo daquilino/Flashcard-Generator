@@ -1,2 +1,0 @@
-{"fullText":"The colors red and blue make purple.","clozeDeletion":"red, blue","partialText":"THE COLORS ... AND ... MAKE PURPLE."}
-{"fullText":"The colors red and blue make purple.","clozeDeletion":"red, blue","partialText":"THE COLORS ... AND ... MAKE PURPLE."}
